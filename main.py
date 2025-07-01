@@ -17,8 +17,8 @@ def home():
 
 
 # Game signup links (replace with actual links)
-aviator_link = "https://1wdtvl.top"
-luckyjet_link = "https://1wdtvl.top"
+aviator_link = "https://1weaou.life/?open=register&p=tebq"
+luckyjet_link = "https://1weaou.life/?open=register&p=tebq"
 
 # Different promo images for each game (replace with actual image URLs)
 aviator_promo_image = "https://imgur.com/a/vaJwOa6"
