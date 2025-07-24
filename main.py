@@ -4,7 +4,8 @@ import threading
 from flask import Flask
 
 # Replace with your actual Telegram bot token from BotFather
-TOKEN = "7850563737:AAEPK67lTW6IucwhUxr9qWPmhOL8gTuHBPE"
+TOKEN = "7612668714: AAE00igNpcb_UCXRtjB
+t14vrEKdeOXNCrw"
 bot = telebot.TeleBot(TOKEN)
 
 # Flask server to keep Replit running
