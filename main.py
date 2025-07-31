@@ -36,7 +36,7 @@ def send_welcome(message):
     markup.add(aviator_button, luckyjet_button)
 
     bot.send_message(message.chat.id,
-                     "Which game do you want to play with (A.I) bot to earn?",
+                     "Which game do you want to playing now?",
                      reply_markup=markup)
 
 
@@ -60,12 +60,7 @@ def game_selection(message):
         "Follow these steps to sign up:\n"
         f"1. Click the link: {signup_link}\n"
         "2. Register and create an account\n"
-        "3. Start playing and earning!\n\n"
-        "⚠️ Terms and Conditions:\n"
-        "- Make new id on this website(must new).\n"
-        "- No old id use to get A.I bot.\n"
-        "- If you have old id on this website please dont use. first make new .\n"
-        "- After new id add 300 to start. after this within 3-4 minutes you get bot link."
+        "3. ADD 300 RUPPES AND MESSAGE ME ON @Aviatorboss7!\n\n"
     )
 
     # Schedule automatic message after 70 seconds
@@ -76,7 +71,7 @@ def game_selection(message):
 def send_followup(chat_id):
     time.sleep(50)
     bot.send_message(
-        chat_id, f"Join this channel for A.I signals! HACKS {channel_link}")
+        chat_id, f"Join this for cracked BOT version APK FILE {channel_link}")
 
 
 # Run bot in a separate thread
