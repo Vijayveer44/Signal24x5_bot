@@ -8,7 +8,7 @@ TOKEN = "7567302376:AAF98uLr2F7_Wn7GEZiL8inI0BfBrU36Cbs"
 bot = telebot.TeleBot(TOKEN)
 
 # Flask server to keep Replit running
-app = Flask(_name_)
+app = Flask(__name__)
 
 
 @app.route('/')
