@@ -1,14 +1,13 @@
-import os
 import telebot
 import time
 import threading
 from flask import Flask
 
-# Securely get Telegram bot token from environment variable
-TOKEN = os.environ.get("BOT_TOKEN")
+# Replace with your actual Telegram bot token from BotFather
+TOKEN = "7567302376:AAF98uLr2F7_Wn7GEZiL8inI0BfBrU36Cbs"
 bot = telebot.TeleBot(TOKEN)
 
-# Flask server to keep Replit or Railway app running
+# Flask server to keep Replit running
 app = Flask(_name_)
 
 
@@ -17,16 +16,15 @@ def home():
     return "Bot is running!"
 
 
-# Game signup links
+# Game signup links (replace with actual links)
 aviator_link = "https://1weaou.life/?open=register&p=tebq"
 luckyjet_link = "https://1weaou.life/?open=register&p=tebq"
 
-# Promo images
+# Different promo images for each game (replace with actual image URLs)
 aviator_promo_image = "https://imgur.com/a/vaJwOa6"
 luckyjet_promo_image = "https://imgur.com/a/5twyJLU"
 
-# Telegram channel
-channel_link = "https://t.me/tips4winner"
+channel_link = "https://t.me/tips4winner"  # Replace with your Telegram channel link
 
 
 # Start command
@@ -43,46 +41,52 @@ def send_welcome(message):
 
 
 # Handle game selection
-@bot.message_handler(func=lambda message: message.text in ["1️⃣ Aviator", "2️⃣ Lucky Jet"])
+@bot.message_handler(
+    func=lambda message: message.text in ["1️⃣ Aviator", "2️⃣ Lucky Jet"])
 def game_selection(message):
     if message.text == "1️⃣ Aviator":
         game_name = "Aviator"
         signup_link = aviator_link
-        promo_image = aviator_promo_image
+        promo_image = aviator_promo_image  # Use Aviator promo image
     else:
         game_name = "Lucky Jet"
         signup_link = luckyjet_link
-        promo_image = luckyjet_promo_image
+        promo_image = luckyjet_promo_image  # Use Lucky Jet promo image
 
     bot.send_photo(
         message.chat.id,
         promo_image,
         caption=f"🔥 Welcome to {game_name} bot🔥\n\n"
-                "Follow these steps to sign up:\n"
-                f"1. Click the link: {signup_link}\n"
-                "2. Register and create an account\n"
-                "3. Start playing and earning!\n\n"
-                "⚠️ Terms and Conditions:\n"
-                "- Make new id on this website (must be new).\n"
-                "- Do not use old IDs.\n"
-                "- Add ₹300 after registration to get the bot link in 3–4 mins."
+        "Follow these steps to sign up:\n"
+        f"1. Click the link: {signup_link}\n"
+        "2. Register and create an account\n"
+        "3. Start playing and earning!\n\n"
+        "⚠️ Terms and Conditions:\n"
+        "- Make new id on this website(must new).\n"
+        "- No old id use to get A.I bot.\n"
+        "- If you have old id on this website please dont use. first make new .\n"
+        "- After new id add 300 to start. after this within 3-4 minutes you get bot link."
     )
 
-    # Schedule follow-up message
-    threading.Thread(target=send_followup, args=(message.chat.id,)).start()
+    # Schedule automatic message after 70 seconds
+    threading.Thread(target=send_followup, args=(message.chat.id, )).start()
 
 
 # Send follow-up message after 50 seconds
 def send_followup(chat_id):
     time.sleep(50)
-    bot.send_message(chat_id, f"Join this channel for A.I signals! {channel_link}")
+    bot.send_message(
+        chat_id, f"Join this channel for A.I signals! HACKS {channel_link}")
 
 
-# Run bot and Flask server
+# Run bot in a separate thread
 def run_bot():
     bot.polling(none_stop=True)
 
 
+threading.Thread(target=run_bot).start()
+
+# Start bot and Flask server
 if _name_ == "_main_":
     threading.Thread(target=run_bot).start()
     app.run(host="0.0.0.0", port=8080)
