@@ -2,14 +2,16 @@ import telebot
 import time
 import threading
 from flask import Flask
+import os
+from dotenv import load_dotenv
 
-# Replace with your actual Telegram bot token from BotFather
-TOKEN = "7567302376:AAF98uLr2F7_Wn7GEZiL8inI0BfBrU36Cbs"
+load_dotenv()
+
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+
 bot = telebot.TeleBot(TOKEN)
 
-# Flask server to keep Replit running
-app = Flask(__name__)
-
+app = Flask(name)
 
 @app.route('/')
 def home():
@@ -85,3 +87,4 @@ threading.Thread(target=run_bot).start()
 if _name_ == "_main_":
     threading.Thread(target=run_bot).start()
     app.run(host="0.0.0.0", port=8080)
+
