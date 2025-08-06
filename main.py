@@ -11,7 +11,7 @@ TOKEN = os.getenv("TELEGRAM_TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -87,4 +87,5 @@ threading.Thread(target=run_bot).start()
 if _name_ == "_main_":
     threading.Thread(target=run_bot).start()
     app.run(host="0.0.0.0", port=8080)
+
 
